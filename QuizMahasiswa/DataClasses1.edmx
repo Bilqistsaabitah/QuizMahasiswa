@@ -1,0 +1,95 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="QuizMahasiswaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'QuizMahasiswa.dbo.tbl_barang' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="tbl_barang">
+          <Key>
+            <PropertyRef Name="id_barang" />
+            <PropertyRef Name="nama_barang" />
+            <PropertyRef Name="harga" />
+            <PropertyRef Name="stok" />
+          </Key>
+          <Property Name="id_barang" Type="int" Nullable="false" />
+          <Property Name="nama_barang" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="harga" Type="int" Nullable="false" />
+          <Property Name="stok" Type="int" Nullable="false" />
+          <Property Name="nama_supplier" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityContainer Name="QuizMahasiswaModelStoreContainer">
+          <EntitySet Name="tbl_barang" EntityType="Self.tbl_barang" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [tbl_barang].[id_barang] AS [id_barang], 
+    [tbl_barang].[nama_barang] AS [nama_barang], 
+    [tbl_barang].[harga] AS [harga], 
+    [tbl_barang].[stok] AS [stok], 
+    [tbl_barang].[nama_supplier] AS [nama_supplier]
+    FROM [dbo].[tbl_barang] AS [tbl_barang]</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="QuizMahasiswaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="tbl_barang">
+          <Key>
+            <PropertyRef Name="id_barang" />
+            <PropertyRef Name="nama_barang" />
+            <PropertyRef Name="harga" />
+            <PropertyRef Name="stok" />
+          </Key>
+          <Property Name="id_barang" Type="Int32" Nullable="false" />
+          <Property Name="nama_barang" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="harga" Type="Int32" Nullable="false" />
+          <Property Name="stok" Type="Int32" Nullable="false" />
+          <Property Name="nama_supplier" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityContainer Name="QuizMahasiswaEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="tbl_barang" EntityType="Self.tbl_barang" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="QuizMahasiswaModelStoreContainer" CdmEntityContainer="QuizMahasiswaEntities">
+          <EntitySetMapping Name="tbl_barang">
+            <EntityTypeMapping TypeName="QuizMahasiswaModel.tbl_barang">
+              <MappingFragment StoreEntitySet="tbl_barang">
+                <ScalarProperty Name="id_barang" ColumnName="id_barang" />
+                <ScalarProperty Name="nama_barang" ColumnName="nama_barang" />
+                <ScalarProperty Name="harga" ColumnName="harga" />
+                <ScalarProperty Name="stok" ColumnName="stok" />
+                <ScalarProperty Name="nama_supplier" ColumnName="nama_supplier" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
